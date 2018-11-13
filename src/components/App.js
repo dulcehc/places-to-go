@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { CLIENT_ID, CLIENT_SECRET } from './../constants/api-key';
-import Venue from './Venue';
 import Search  from './Search';
+import Result from './Result';
 
 class App extends Component {
   constructor(props) {
@@ -50,19 +50,11 @@ class App extends Component {
   }
 
   render() {
-    let venueList = this.state.venues.map((item, i) =>
-      <Venue key={i}
-          name={item.venue.name}
-          location={item.venue.location.address}
-      />
-    );
-
+    const { venues } = this.state;
     return (
       <div className="App">
         <Search onSubmit={(query)=>this.getVenues(query)}/>
-        <ul>
-          {venueList}
-        </ul>
+        {venues.length > 0 ? <Result results={venues} /> : ''}
       </div>
     );
   }
