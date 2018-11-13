@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { CLIENT_ID, CLIENT_SECRET } from './../constants/api-key';
 import Venue from './Venue';
+import Search  from './Search';
 
 class App extends Component {
   constructor(props) {
@@ -27,14 +28,14 @@ class App extends Component {
     });
   }
 
-  getVenues() {
+  getVenues = query => {
     const venuesEndpoint = 'https://api.foursquare.com/v2/venues/explore?';
 
     const params = {
       client_id: CLIENT_ID,
       client_secret: CLIENT_SECRET,
       limit: 5,
-      query: 'tacos',
+      query,
       v: '20181112',
       ll: this.state.latlong
     };
@@ -58,6 +59,7 @@ class App extends Component {
 
     return (
       <div className="App">
+        <Search onSubmit={(query)=>this.getVenues(query)}/>
         <ul>
           {venueList}
         </ul>
