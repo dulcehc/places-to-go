@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { FaHeart } from 'react-icons/fa';
 import { CLIENT_ID, CLIENT_SECRET } from './../constants/api-key';
+import { DEFAULT_PHOTO } from '../constants/images';
 
 const params = {
   client_id: CLIENT_ID,
@@ -11,7 +13,7 @@ class Venue extends Component {
   constructor(props){
     super(props);
     this.state = {
-      photo: '',
+      photo: DEFAULT_PHOTO,
       likes: 0
     }
   }
@@ -59,11 +61,14 @@ class Venue extends Component {
 
     return (
       <div className="Venue">
-        <h1>{name} </h1>
-        <span>{likes}</span>
-        <span>{location}</span>
-        <img src={photo} />
+        <img className="Venue__image" src={photo} />
+        <span className="Venue__title">{name}</span>
+        <span className="Venue__location">{location}</span>
+        <span className="Venue__social">
 
+        <FaHeart color='red' size='1.5rem'></FaHeart>
+        {likes}
+        </span>
       </div>
     );
   }

@@ -1,0 +1,39 @@
+.Venue {
+  width: 90%;
+  margin: 5%;
+ /*  justify-content: center;*/
+  box-sizing: border-box;
+  box-shadow: rgba(black, 0.19) 0 0 8px 0;
+
+  &__image {
+    opacity: 0.5;
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px 4px 0 0;
+    &:hover{
+      opacity: 1;
+    }
+  }
+  &__title {
+    display: block;
+    font-family: $venue-title-font;
+    background: #A450AF;
+    padding: 3.5% 0 2.5% 0;
+    color: white;
+    width: 100%;
+    font-size: 1.6rem;
+  }
+
+  &__location {
+    display: block;
+    padding: 5% 5% 3% 5%;
+    font-size: 1.4rem;
+  }
+
+  &__social {
+    margin-left: 5%;
+    font-size: 1.5rem;
+    &__heart {
+    }
+  }
+}
