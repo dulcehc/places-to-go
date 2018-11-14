@@ -27,12 +27,14 @@ class App extends Component {
     });
   }
 
+
+
   getVenues = (query, location='') => {
     const venuesEndpoint = 'https://api.foursquare.com/v2/venues/explore?';
     const params = {
       client_id: CLIENT_ID,
       client_secret: CLIENT_SECRET,
-      limit: 10,
+      limit: 4,
       query,
       v: '20181112',
       ll: this.state.latlong,

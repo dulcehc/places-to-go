@@ -8,6 +8,7 @@ const Result = ({ results }) => {
         <Venue key={i}
           name={item.venue.name}
           location={item.venue.location.address}
+          id={item.venue.id}
         />
       )}
     </div>
