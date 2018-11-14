@@ -5,18 +5,25 @@ class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: ''
+      venue: '',
+      location: '',
     };
   }
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.onSubmit(this.state.value);
+    this.props.onSubmit(this.state.venue, this.state.location);
   }
 
-  handleChange = e => {
+  handleVenue = e => {
     this.setState({
-      value: e.target.value
+      venue: e.target.value
+    });
+  }
+
+  handleLocation = e => {
+    this.setState({
+      location: e.target.value
     });
   }
 
@@ -25,9 +32,14 @@ class Search extends Component {
       <div className="Search">
         <input
           id="venueType"
-          onChange={this.handleChange}
-          value={this.state.value}
+          onChange={this.handleVenue}
+          value={this.state.venue}
           placeholder="search for venues" />
+        <input
+          id="venueLocation"
+          onChange={this.handleLocation}
+          value={this.state.location}
+          placeholder="location" />
         <button onClick={this.handleSubmit}>Search</button>
       </div>
     );
