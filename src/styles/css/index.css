@@ -4,17 +4,20 @@ body {
 
 .Search {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-direction: row;
   width: 100%;
-  height: 90px;
+  height: 180px;
   background-color: #318ebb;
 }
+@media (min-width: 768px) {
+  .Search {
+    flex-direction: row;
+    height: 90px;
+  }
+}
 .Search input {
-  padding: 1.2rem 1rem 1.2rem 4rem;
-  height: 16px;
-  font-size: 0.9rem;
   color: #4a4a4a;
   border: none;
   position: relative;
@@ -22,15 +25,34 @@ body {
   letter-spacing: 0.05rem;
   background-repeat: no-repeat;
   background-position: 1rem 50%;
-  background-size: 2rem;
+  background-size: 0.7rem;
+  padding: 0.9rem 0.5rem 0.9rem 2rem;
+  height: 5px;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+@media (min-width: 768px) {
+  .Search input {
+    background-size: 2rem;
+    height: 16px;
+    padding: 1.2rem 1rem 1.2rem 4rem;
+  }
 }
 .Search__venue {
   background: url("/img/icons8-shop.png") #ffffff;
-  margin-right: 0.7rem;
+}
+@media (min-width: 768px) {
+  .Search__venue {
+    margin-right: 0.7rem;
+  }
 }
 .Search__location {
   background: url("/img/icons8-place.png") #ffffff;
-  margin-left: 0.7rem;
+}
+@media (min-width: 768px) {
+  .Search__location {
+    margin-left: 0.7rem;
+  }
 }
 .Search__btn {
   background: #3ad160;
@@ -46,6 +68,7 @@ body {
   cursor: pointer;
   transition: all 0.4s ease-out;
   margin-left: 0.7rem;
+  margin-top: 10px;
 }
 .Search__btn:hover {
   background: #31a34e;

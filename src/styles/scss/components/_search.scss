@@ -1,16 +1,18 @@
 .Search {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-direction: row;
   width: 100%;
-  height: $search-height;
+  height: 180px;
   background-color: $search-bg-color;
 
+  @include responsive(md) {
+    flex-direction: row;
+    height: $search-height-md;
+  }
+
   input {
-    padding: 1.2rem 1rem 1.2rem 4rem;
-    height: 16px;
-    font-size: 0.9rem;
     color: $search-text-color;
     border: none;
     position: relative;
@@ -18,15 +20,28 @@
     letter-spacing: .05rem;
     background-repeat: no-repeat;
     background-position: 1rem 50%;
-    background-size: 2rem;
+    background-size: 0.7rem;
+    padding: 0.9rem 0.5rem 0.9rem 2rem;
+    height: 5px;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    @include responsive(md) {
+      background-size: 2rem;
+      height: 16px;
+      padding: 1.2rem 1rem 1.2rem 4rem;
+    }
   }
   &__venue {
     background: url('/img/icons8-shop.png') #ffffff;
-    margin-right: $search-input-margin;
+    @include responsive(md) {
+      margin-right: $search-input-margin;
+    }
   }
   &__location {
     background: url('/img/icons8-place.png') #ffffff;
-    margin-left: $search-input-margin;
+    @include responsive(md) {
+      margin-left: $search-input-margin;
+    }
   }
   &__btn {
     background: $search-btn-color;
@@ -42,7 +57,7 @@
     cursor: pointer;
     transition: all .4s ease-out;
     margin-left: $search-input-margin;
-
+    margin-top: 10px;
     &:hover {
       background: $search-btn-color-dark;
     }
