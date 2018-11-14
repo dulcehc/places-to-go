@@ -34,13 +34,18 @@ class Search extends Component {
           id="venueType"
           onChange={this.handleVenue}
           value={this.state.venue}
-          placeholder="search for venues" />
+          placeholder="search for venues"
+          className="Search__venue"
+        />
         <input
           id="venueLocation"
           onChange={this.handleLocation}
           value={this.state.location}
-          placeholder="location" />
-        <button onClick={this.handleSubmit}>Search</button>
+          placeholder="location"
+          className="Search__location"
+        />
+        <button className="Search__btn"
+          onClick={this.handleSubmit}>Search</button>
       </div>
     );
   }

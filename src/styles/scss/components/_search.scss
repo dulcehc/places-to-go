@@ -1,0 +1,51 @@
+.Search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  width: 100%;
+  height: $search-height;
+  background-color: $search-bg-color;
+
+  input {
+    padding: 1.2rem 1rem 1.2rem 4rem;
+    height: 16px;
+    font-size: 0.9rem;
+    color: $search-text-color;
+    border: none;
+    position: relative;
+    right: 0;
+    letter-spacing: .05rem;
+    background-repeat: no-repeat;
+    background-position: 1rem 50%;
+    background-size: 2rem;
+  }
+  &__venue {
+    background: url('/img/icons8-shop.png') #ffffff;
+    margin-right: $search-input-margin;
+  }
+  &__location {
+    background: url('/img/icons8-place.png') #ffffff;
+    margin-left: $search-input-margin;
+  }
+  &__btn {
+    background: $search-btn-color;
+    height: 40px;
+    width: 120px;
+    color: $search-text-color;
+    border: none;
+    border-radius: 5%;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    cursor: pointer;
+    transition: all .4s ease-out;
+    margin-left: $search-input-margin;
+
+    &:hover {
+      background: $search-btn-color-dark;
+    }
+  }
+
+}
