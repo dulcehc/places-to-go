@@ -1,7 +1,11 @@
 import React from 'react';
 import Venue from './Venue';
 
-const Result = ({ results }) => {
+const Result = ({ results, onSelected }) => {
+  const handleVenue = id => {
+    onSelected(id);
+  }
+
   return (
     <div className="Result">
       { results.map((item, i) =>
@@ -9,6 +13,7 @@ const Result = ({ results }) => {
           name={item.venue.name}
           location={item.venue.location.address}
           id={item.venue.id}
+          onClickedVenue={()=>handleVenue(item.venue.id)}
         />
       )}
     </div>

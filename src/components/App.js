@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { CLIENT_ID, CLIENT_SECRET } from './../constants/api-key';
 import Search  from './Search';
 import Result from './Result';
+import DetailedVenue from './DetailedVenue';
 
 class App extends Component {
   constructor(props) {
@@ -9,6 +10,7 @@ class App extends Component {
     this.state = {
       venues: [],
       latlong: '',
+      id: '',
       error: ''
     };
   }
@@ -59,16 +61,32 @@ class App extends Component {
     });
   }
 
+  handleSelectionVenue = id => {
+    this.setState({
+      id,
+    });
+  };
+
   render() {
-    const { venues, error } = this.state;
+    const { venues, error, id } = this.state;
     const message = error ? 'No results found' : '';
 
     return (
       <div className="App">
         <Search onSubmit={(query, location)=>this.getVenues(query, location)}/>
-        { venues.length > 0 ? <Result results={venues} />
-          : <span>{message}</span>
-        }
+        <div className="App__container">
+          { venues.length > 0 ?
+              <Result
+                results={venues}
+                onSelected={this.handleSelectionVenue}
+              />
+
+            : <span>{message}</span>
+          }
+
+          {id && <DetailedVenue id={id}/>}
+        </div>
+
       </div>
     );
   }
