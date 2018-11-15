@@ -55,14 +55,18 @@ class Venue extends Component {
     return (
       <div className="Venue" onClick={onClickedVenue}>
         <img className="Venue__image" src={photo} />
-        <span className="Venue__title">{name}</span>
-        <span className="Venue__location">
-          {location && `Address: ${location}`}
-        </span>
-        <span className="Venue__social">
-          <FaStar color='yellow' size='1.5rem'></FaStar>
-          {rating}
-        </span>
+        <div className="Venue__info">
+          <span className="Venue__info__header">
+            <span className="Venue__info__header__rating">
+              <FaStar color="yellow" ></FaStar>
+              {rating}
+            </span>
+            <span className="Venue__info__header__title">{name}</span>
+          </span>
+          <span className="Venue__info__location">
+            {location && `Address: ${location}`}
+          </span>
+        </div>
       </div>
     );
   }
