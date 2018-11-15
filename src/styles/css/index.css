@@ -1,8 +1,21 @@
-@import url("https://fonts.googleapis.com/css?family=Josefin+Sans");
 @import url("https://fonts.googleapis.com/css?family=Dosis");
 body {
   margin: 0;
   font-family: "Dosis", sans-serif;
+  color: black;
+}
+
+.App__container {
+  display: grid;
+  grid-template-columns: 100%;
+}
+@media (min-width: 768px) {
+  .App__container {
+    grid-template-columns: 35% 58%;
+    justify-content: space-around;
+    grid-column-gap: 5%;
+    margin: 2%;
+  }
 }
 
 .Search {
@@ -80,36 +93,59 @@ body {
 .Venue {
   width: 90%;
   margin: 5%;
-  /*  justify-content: center;*/
   box-sizing: border-box;
   box-shadow: rgba(0, 0, 0, 0.19) 0 0 8px 0;
 }
+@media (min-width: 992px) {
+  .Venue {
+    display: grid;
+    grid-template-columns: 40% 60%;
+  }
+}
+.Venue:hover {
+  box-shadow: rgba(117, 110, 110, 0.45) 0px 0px 20px 0px;
+}
 .Venue__image {
-  opacity: 0.5;
-  max-width: 100%;
-  height: auto;
+  display: none;
   border-radius: 4px 4px 0 0;
 }
 .Venue__image:hover {
   opacity: 1;
 }
-.Venue__title {
+@media (min-width: 768px) {
+  .Venue__image {
+    display: inline;
+    max-width: 100%;
+    height: auto;
+    opacity: 0.5;
+  }
+}
+.Venue__info__header {
   display: block;
-  font-family: "Josefin Sans", sans-serif;
-  background: #A450AF;
+  background: #02c061;
   padding: 3.5% 0 2.5% 0;
-  color: white;
   width: 100%;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
 }
-.Venue__location {
-  display: block;
+@media (min-width: 992px) {
+  .Venue__info__header {
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+  }
+}
+.Venue__info__header__rating {
+  padding: 3%;
+}
+.Venue__info__location {
+  display: none;
   padding: 5% 5% 3% 5%;
-  font-size: 1.4rem;
 }
-.Venue__social {
-  margin-left: 5%;
-  font-size: 1.5rem;
+@media (min-width: 992px) {
+  .Venue__info__location {
+    display: block;
+    font-size: 1.1rem;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

@@ -1,39 +1,55 @@
 .Venue {
   width: 90%;
   margin: 5%;
- /*  justify-content: center;*/
   box-sizing: border-box;
   box-shadow: rgba(black, 0.19) 0 0 8px 0;
 
+  @include responsive(lg) {
+    display: grid;
+    grid-template-columns: 40% 60%;
+  }
+  &:hover{
+    box-shadow: rgba(rgb(117, 110, 110), 0.45) 0px 0px 20px 0px;
+  }
   &__image {
-    opacity: 0.5;
-    max-width: 100%;
-    height: auto;
+    display: none;
     border-radius: 4px 4px 0 0;
-    &:hover{
+    &:hover {
       opacity: 1;
     }
-  }
-  &__title {
-    display: block;
-    font-family: $venue-title-font;
-    background: #A450AF;
-    padding: 3.5% 0 2.5% 0;
-    color: white;
-    width: 100%;
-    font-size: 1.6rem;
+    @include responsive(md) {
+      display: inline;
+      max-width: 100%;
+      height: auto;
+      opacity: 0.5;
+    }
+
   }
 
-  &__location {
-    display: block;
-    padding: 5% 5% 3% 5%;
-    font-size: 1.4rem;
-  }
+  &__info{
+    &__header {
+      display: block;
+      background: #02c061;
+      padding: 3.5% 0 2.5% 0;
+      width: 100%;
+      font-size: 1.2rem;
+      @include responsive(lg) {
+        text-align: center;
+        height: 50px;
+        line-height: 50px;
+      }
+      &__rating {
+        padding: 3%;
+      }
+    }
 
-  &__social {
-    margin-left: 5%;
-    font-size: 1.5rem;
-    &__heart {
+    &__location {
+      display: none;
+      padding: 5% 5% 3% 5%;
+      @include responsive(lg) {
+        display: block;
+        font-size: 1.1rem;
+      }
     }
   }
 }
