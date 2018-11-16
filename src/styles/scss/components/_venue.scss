@@ -35,8 +35,6 @@
       font-size: 1.2rem;
       @include responsive(lg) {
         text-align: center;
-        height: 50px;
-        line-height: 50px;
       }
       &__rating {
         padding: 3%;
