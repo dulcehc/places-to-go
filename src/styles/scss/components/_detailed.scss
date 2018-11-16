@@ -1,0 +1,27 @@
+.DetailedVenue {
+  display: grid;
+  grid-template-columns: 100%;
+  width: 90%;
+  margin: 5%;
+  box-sizing: border-box;
+  box-shadow: rgba(black, 0.19) 0 0 8px 0;
+
+  &__img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  &__info {
+    padding: 1% 5%;
+    &__name {
+      display: block;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+     > * {
+      display: block;
+      padding: 2% 2%;
+    }
+
+  }
+}

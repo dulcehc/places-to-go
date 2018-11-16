@@ -148,4 +148,47 @@ body {
   }
 }
 
+.DetailedVenue {
+  display: grid;
+  grid-template-columns: 100%;
+  width: 90%;
+  margin: 5%;
+  box-sizing: border-box;
+  box-shadow: rgba(0, 0, 0, 0.19) 0 0 8px 0;
+}
+.DetailedVenue__img {
+  max-width: 100%;
+  height: auto;
+}
+.DetailedVenue__info {
+  padding: 1% 5%;
+}
+.DetailedVenue__info__name {
+  display: block;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+.DetailedVenue__info > * {
+  display: block;
+  padding: 2% 2%;
+}
+
+.Tip {
+  display: inline;
+}
+.Tip__user img {
+  border-radius: 50%;
+  max-width: 30%;
+  float: left;
+  padding-right: 2%;
+}
+.Tip__user__name {
+  display: block;
+  font-weight: bold;
+}
+.Tip__user__text {
+  display: inline;
+  text-align: justify;
+}
+
 /*# sourceMappingURL=index.css.map */

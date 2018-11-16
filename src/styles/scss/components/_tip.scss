@@ -1,0 +1,22 @@
+.Tip {
+  display: inline;
+
+  &__user{
+    img {
+      border-radius: 50%;
+      max-width: 30%;
+      float: left;
+      padding-right: 2%;
+    }
+    &__name {
+      display: block;
+      font-weight: bold;
+    }
+
+    &__text {
+      display: inline;
+      text-align: justify;
+    }
+  }
+
+}
