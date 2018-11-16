@@ -34,8 +34,9 @@ class Search extends Component {
           id="venueType"
           onChange={this.handleVenue}
           value={this.state.venue}
-          placeholder="search for venues"
+          placeholder="venue"
           className="Search__venue"
+          autocomplete="off"
         />
         <input
           id="venueLocation"
