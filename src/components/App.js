@@ -22,10 +22,13 @@ class App extends Component {
   getLocation = () => {
     navigator.geolocation.getCurrentPosition(response => {
       this.setState({
-        latlong: `${response.coords.latitude},${response.coords.longitude}`
+        latlong: `${response.coords.latitude},${response.coords.longitude}`,
+        error: ''
       });
     }, err => {
-      console.warn('ERROR(' + err.code + '): ' + err.message);
+      this.setState({
+        error: 'You must share your location to use the app'
+      })
     });
   }
 
@@ -45,7 +48,6 @@ class App extends Component {
       method: 'GET'
     }).then(response => response.json())
       .then(response => {
-        console.log(response.response.groups[0].items);
         this.setState({
           venues: response.response.groups[0].items,
           id: '',
@@ -55,7 +57,7 @@ class App extends Component {
       .catch(error => {
         this.setState({
           venues: [],
-          error
+          error: 'No results found'
         });
     });
   }
@@ -68,11 +70,14 @@ class App extends Component {
 
   render() {
     const { venues, error, id } = this.state;
-    const message = error ? 'No results found' : '';
+    const message = error ? error : '';
 
     return (
       <div className="App">
-        <Search onSubmit={(query, location)=>this.getVenues(query, location)}/>
+        {this.state.latlong && <Search
+                        onSubmit={(query, location)=>this.getVenues(query, location)}
+                      />
+        }
         <div className="App__container">
           { venues.length > 0 ?
               <Result
@@ -80,7 +85,7 @@ class App extends Component {
                 onSelected={this.handleSelectionVenue}
               />
 
-            : <span>{message}</span>
+            : <span className="App__container__error">{message}</span>
           }
           {id && <DetailedVenue id={id} />}
         </div>
