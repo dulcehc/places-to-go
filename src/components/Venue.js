@@ -38,8 +38,10 @@ class Venue extends Component {
     }).then(response => response.json())
       .then(res => {
         const info = res.response.venue;
+        const photo = info.photos.count === 0 ? DEFAULT_PHOTO
+                      : `${info.bestPhoto.prefix}original${info.bestPhoto.suffix}`;
         this.setState({
-          photo: `${info.bestPhoto.prefix}original${info.bestPhoto.suffix}` || DEFAULT_PHOTO,
+          photo,
           rating: info.rating
         });
       })
