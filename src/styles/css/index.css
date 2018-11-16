@@ -207,6 +207,11 @@ body {
   padding: 2% 2%;
 }
 
+.SocialMedia > * {
+  display: inline-block;
+  cursor: pointer;
+}
+
 .Tip {
   display: inline;
 }
