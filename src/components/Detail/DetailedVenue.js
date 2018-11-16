@@ -3,6 +3,7 @@ import { FaMapMarkedAlt, FaThumbsUp } from 'react-icons/fa';
 import { DEFAULT_PHOTO } from '../../constants/images';
 import { CLIENT_ID, CLIENT_SECRET } from '../../constants/api-key';
 import Tip from './Tip';
+import SocialMedia from './SocialMedia';
 
 const params = {
   client_id: CLIENT_ID,
@@ -77,20 +78,21 @@ class DetailedVenue extends Component {
           <span className="DetailedVenue__info__name">{name}</span>
           {category &&
             <span className="DetailedVenue__info__cat">
-             {category.hasOwnProperty('icon') &&  <img src={`${category.icon.prefix}bg_32${category.icon.suffix}`} /> }
+              {category.hasOwnProperty('icon') &&  <img src={`${category.icon.prefix}bg_32${category.icon.suffix}`} /> }
               {category.name}
             </span>
           }
-          <span className="DetailedVenue__info__liked">
-            <FaThumbsUp color="blue" />{likes}
-          </span>
-          url: {url}
           {location &&
             <span className="DetailedVenue__info__location">
               <FaMapMarkedAlt color="green"/> {location}
             </span>
           }
+          <span className="DetailedVenue__info__liked">
+            <FaThumbsUp color="blue" />{likes}
+          </span>
+          {url &&  <SocialMedia url={url}  />}
           {Object.keys(tip).length > 0 && <Tip tip={tip} />}
+
         </div>
       </div>
     );
