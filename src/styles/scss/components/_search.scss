@@ -1,0 +1,66 @@
+.Search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 180px;
+  background-color: $search-bg-color;
+
+  @include responsive(md) {
+    flex-direction: row;
+    height: $search-height-md;
+  }
+
+  input {
+    color: $search-text-color;
+    border: none;
+    position: relative;
+    right: 0;
+    letter-spacing: .05rem;
+    background-repeat: no-repeat;
+    background-position: 1rem 50%;
+    background-size: 0.7rem;
+    padding: 0.9rem 0.5rem 0.9rem 2rem;
+    height: 5px;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    @include responsive(md) {
+      background-size: 2rem;
+      height: 16px;
+      padding: 1.2rem 1rem 1.2rem 4rem;
+    }
+  }
+  &__venue {
+    background: url('/img/icons8-shop.png') #ffffff;
+    @include responsive(md) {
+      margin-right: $search-input-margin;
+    }
+  }
+  &__location {
+    background: url('/img/icons8-place.png') #ffffff;
+    @include responsive(md) {
+      margin-left: $search-input-margin;
+    }
+  }
+  &__btn {
+    background: $search-btn-color;
+    height: 40px;
+    width: 120px;
+    color: $search-text-color;
+    border: none;
+    border-radius: 5%;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    cursor: pointer;
+    transition: all .4s ease-out;
+    margin-left: $search-input-margin;
+    margin-top: 10px;
+    &:hover {
+      background: $search-btn-color-dark;
+    }
+  }
+
+}

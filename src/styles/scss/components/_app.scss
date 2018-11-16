@@ -1,0 +1,17 @@
+.App {
+  &__container {
+    display: grid;
+    grid-template-columns: 100%;
+    @include responsive(md) {
+      grid-template-columns: 35% 64%;
+      justify-content: space-around;
+      grid-column-gap: 1%;
+    }
+    &__error {
+      font-size: 1.3rem;
+      color: red;
+      font-weight: bold;
+      margin: 2%;
+    }
+  }
+}

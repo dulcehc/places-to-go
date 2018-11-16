@@ -5,13 +5,16 @@
   "dependencies": {
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
-    "react-scripts": "2.1.1"
+    "react-icons": "^3.2.2",
+    "react-scripts": "2.1.1",
+    "react-share": "^2.3.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "sass": "sass --watch src/styles/scss:src/styles/css"
   },
   "eslintConfig": {
     "extends": "react-app"

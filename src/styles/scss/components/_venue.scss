@@ -1,0 +1,51 @@
+.Venue {
+  width: 90%;
+  margin: 5%;
+  box-sizing: border-box;
+  @include box-shadow(0, 0, 8px, rgba(black, 0.19));
+
+  @include responsive(lg) {
+    display: grid;
+    grid-template-columns: 40% 60%;
+  }
+  &:hover{
+    @include box-shadow(0px, 0px, 20px, rgb(117, 110, 110));
+  }
+  &__image {
+    display: none;
+    &:hover {
+      opacity: 1;
+    }
+    @include responsive(md) {
+      display: inline;
+      max-width: 100%;
+      height: auto;
+      opacity: 0.5;
+    }
+  }
+
+  &__info{
+    &__header {
+      display: block;
+      background: #02c061;
+      padding: 3.5% 0 2.5% 0;
+      width: 100%;
+      font-size: 1.2rem;
+      @include responsive(lg) {
+        text-align: center;
+      }
+      &__rating {
+        padding: 3%;
+      }
+    }
+
+    &__location {
+      display: none;
+      padding: 5% 5% 3% 5%;
+      @include responsive(lg) {
+        display: block;
+        font-size: 1.1rem;
+      }
+    }
+  }
+}

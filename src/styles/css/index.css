@@ -1,0 +1,289 @@
+@import url("https://fonts.googleapis.com/css?family=Dosis");
+body {
+  margin: 0;
+  font-family: "Dosis", sans-serif;
+  color: black;
+}
+
+.error {
+  font-size: 1.3rem;
+  color: red;
+  font-weight: bold;
+  margin: 2%;
+}
+
+.App__container {
+  display: grid;
+  grid-template-columns: 100%;
+}
+@media (min-width: 768px) {
+  .App__container {
+    grid-template-columns: 35% 64%;
+    justify-content: space-around;
+    grid-column-gap: 1%;
+  }
+}
+.App__container__error {
+  font-size: 1.3rem;
+  color: red;
+  font-weight: bold;
+  margin: 2%;
+}
+
+.Search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 180px;
+  background-color: #318ebb;
+}
+@media (min-width: 768px) {
+  .Search {
+    flex-direction: row;
+    height: 90px;
+  }
+}
+.Search input {
+  color: #4a4a4a;
+  border: none;
+  position: relative;
+  right: 0;
+  letter-spacing: 0.05rem;
+  background-repeat: no-repeat;
+  background-position: 1rem 50%;
+  background-size: 0.7rem;
+  padding: 0.9rem 0.5rem 0.9rem 2rem;
+  height: 5px;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+@media (min-width: 768px) {
+  .Search input {
+    background-size: 2rem;
+    height: 16px;
+    padding: 1.2rem 1rem 1.2rem 4rem;
+  }
+}
+.Search__venue {
+  background: url("/img/icons8-shop.png") #ffffff;
+}
+@media (min-width: 768px) {
+  .Search__venue {
+    margin-right: 0.7rem;
+  }
+}
+.Search__location {
+  background: url("/img/icons8-place.png") #ffffff;
+}
+@media (min-width: 768px) {
+  .Search__location {
+    margin-left: 0.7rem;
+  }
+}
+.Search__btn {
+  background: #3ad160;
+  height: 40px;
+  width: 120px;
+  color: #4a4a4a;
+  border: none;
+  border-radius: 5%;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  cursor: pointer;
+  transition: all 0.4s ease-out;
+  margin-left: 0.7rem;
+  margin-top: 10px;
+}
+.Search__btn:hover {
+  background: #31a34e;
+}
+
+.Venue {
+  width: 90%;
+  margin: 5%;
+  box-sizing: border-box;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.19);
+  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.19);
+  -moz-box-shadow: 0 0 8px rgba(0, 0, 0, 0.19);
+}
+@media (min-width: 992px) {
+  .Venue {
+    display: grid;
+    grid-template-columns: 40% 60%;
+  }
+}
+.Venue:hover {
+  box-shadow: 0px 0px 20px #756e6e;
+  -webkit-box-shadow: 0px 0px 20px #756e6e;
+  -moz-box-shadow: 0px 0px 20px #756e6e;
+}
+.Venue__image {
+  display: none;
+}
+.Venue__image:hover {
+  opacity: 1;
+}
+@media (min-width: 768px) {
+  .Venue__image {
+    display: inline;
+    max-width: 100%;
+    height: auto;
+    opacity: 0.5;
+  }
+}
+.Venue__info__header {
+  display: block;
+  background: #02c061;
+  padding: 3.5% 0 2.5% 0;
+  width: 100%;
+  font-size: 1.2rem;
+}
+@media (min-width: 992px) {
+  .Venue__info__header {
+    text-align: center;
+  }
+}
+.Venue__info__header__rating {
+  padding: 3%;
+}
+.Venue__info__location {
+  display: none;
+  padding: 5% 5% 3% 5%;
+}
+@media (min-width: 992px) {
+  .Venue__info__location {
+    display: block;
+    font-size: 1.1rem;
+  }
+}
+
+.DetailedVenue {
+  display: grid;
+  grid-template-columns: 100%;
+  width: 90%;
+  margin: 5%;
+  box-sizing: border-box;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.19);
+  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.19);
+  -moz-box-shadow: 0 0 8px rgba(0, 0, 0, 0.19);
+  background: linear-gradient(90deg, #d3cfd3 10%, #c7ddd8 90%);
+  border-radius: 2.5rem/2rem;
+}
+@media (min-width: 768px) {
+  .DetailedVenue {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media (min-width: 992px) {
+  .DetailedVenue {
+    display: grid;
+    flex-direction: row;
+    grid-template-columns: 45% 50%;
+    justify-content: space-around;
+    grid-column-gap: 1%;
+  }
+}
+.DetailedVenue__img {
+  max-width: 90%;
+  height: auto;
+  margin: 5%;
+}
+@media (min-width: 768px) {
+  .DetailedVenue__img {
+    display: none;
+  }
+}
+@media (min-width: 992px) {
+  .DetailedVenue__img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+  }
+}
+.DetailedVenue__info {
+  padding: 1% 5%;
+}
+.DetailedVenue__info__name {
+  display: block;
+  font-weight: bold;
+  font-size: 1.3rem;
+  -webkit-animation: text 5s infinite;
+  -moz-animation: text 5s infinite;
+  -o-animation: text 5s infinite;
+  animation: text 5s infinite;
+}
+@-webkit-keyframes text {
+  0% {
+    color: blue;
+  }
+  100% {
+    color: black;
+  }
+}
+@-moz-keyframes text {
+  0% {
+    color: blue;
+  }
+  100% {
+    color: black;
+  }
+}
+@-ms-keyframes text {
+  0% {
+    color: blue;
+  }
+  100% {
+    color: black;
+  }
+}
+@keyframes text {
+  0% {
+    color: blue;
+  }
+  100% {
+    color: black;
+  }
+}
+@media (min-width: 992px) {
+  .DetailedVenue__info__name {
+    font-size: 2rem;
+  }
+}
+.DetailedVenue__info > * {
+  display: block;
+  padding: 2% 2%;
+}
+
+.SocialMedia > * {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.Tip {
+  display: inline;
+}
+.Tip__user img {
+  border-radius: 50%;
+  max-width: 30%;
+  float: left;
+  padding-right: 2%;
+}
+.Tip__user__name {
+  display: block;
+  font-weight: bold;
+}
+.Tip__user__text {
+  display: inline;
+  text-align: justify;
+}
+
+/*# sourceMappingURL=index.css.map */

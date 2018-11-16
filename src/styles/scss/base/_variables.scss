@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis');
+
+$base-font: 'Dosis', sans-serif;
+$search-bg-color: #318ebb;
+$search-height-md: 90px;
+$search-text-color: #4a4a4a;
+$search-input-margin: 0.7rem;
+$search-btn-color: #3ad160;
+$search-btn-color-dark: #31a34e;
+
+
+// A map of breakpoints.
+// Breakpoints from Bootstrap
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
