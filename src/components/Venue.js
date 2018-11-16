@@ -9,7 +9,8 @@ class Venue extends Component {
     super(props);
     this.state = {
       photo: DEFAULT_PHOTO,
-      rating: 0
+      rating: 0,
+      error: ''
     }
   }
 
@@ -21,7 +22,8 @@ class Venue extends Component {
     if (nextProps.id !== this.props.id) {
       this.setState({
         photo: DEFAULT_PHOTO,
-        rating: 0
+        rating: 0,
+        error: ''
       });
       this.getInformation(nextProps.id);
     }
@@ -37,16 +39,19 @@ class Venue extends Component {
                       : `${info.bestPhoto.prefix}original${info.bestPhoto.suffix}`;
         this.setState({
           photo,
-          rating: info.rating
+          rating: info.rating,
+          error: ''
         });
       })
       .catch(error => {
-        console.log('Error: ', error)
+        this.setState({
+          error: 'The information can\'t be displayed'
+        });
     });
   }
 
   render() {
-    const { photo, rating } = this.state;
+    const { photo, rating, error} = this.state;
     const { name, location, onClickedVenue } = this.props;
 
     return (
@@ -64,6 +69,7 @@ class Venue extends Component {
             {location && `Address: ${location}`}
           </span>
         </div>
+        {error && <span className="error">{error}</span>}
       </div>
     );
   }

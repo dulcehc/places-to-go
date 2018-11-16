@@ -5,6 +5,13 @@ body {
   color: black;
 }
 
+.error {
+  font-size: 1.3rem;
+  color: red;
+  font-weight: bold;
+  margin: 2%;
+}
+
 .App__container {
   display: grid;
   grid-template-columns: 100%;

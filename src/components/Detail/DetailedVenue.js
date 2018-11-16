@@ -15,7 +15,8 @@ class DetailedVenue extends Component {
       location: '',
       likes: 0,
       url: '',
-      tip: {}
+      tip: [],
+      error: ''
     }
   }
 
@@ -32,7 +33,8 @@ class DetailedVenue extends Component {
         location: '',
         likes: 0,
         url: '',
-        tip: []
+        tip: [],
+        error: ''
       });
       this.getInformation(nextProps.id);
     }
@@ -44,7 +46,6 @@ class DetailedVenue extends Component {
     }).then(response => response.json())
       .then(res => {
         const info = res.response.venue;
-        console.log('info: ', info)
         const photo = info.photos.count === 0 ? DEFAULT_PHOTO
                       : `${info.bestPhoto.prefix}original${info.bestPhoto.suffix}`;
         const location = info.location.hasOwnProperty('address') ? info.location.address : '';
@@ -57,38 +58,44 @@ class DetailedVenue extends Component {
           likes: info.likes.count,
           url: info.shortUrl,
           tip,
+          error: ''
         });
       })
       .catch(error => {
-        console.log('Error: ', error)
+        this.setState({
+          error: 'The information can\'t be displayed'
+        });
     });
   }
   render() {
-    const { photo, name, category, location, likes, url, tip} = this.state;
-    console.log('category: ', category);
+    const { photo, name, category, location, likes, url, tip, error} = this.state;
+
     return (
       <div className="DetailedVenue">
         <img className="DetailedVenue__img" src={photo} />
-        <div className="DetailedVenue__info">
-          <span className="DetailedVenue__info__name">{name}</span>
-          {category &&
-            <span className="DetailedVenue__info__cat">
-              {category.hasOwnProperty('icon') &&  <img src={`${category.icon.prefix}bg_32${category.icon.suffix}`} /> }
-              {category.name}
+        {!error ?
+          <div className="DetailedVenue__info">
+            <span className="DetailedVenue__info__name">{name}</span>
+            {category &&
+              <span className="DetailedVenue__info__cat">
+                {category.hasOwnProperty('icon') &&  <img src={`${category.icon.prefix}bg_32${category.icon.suffix}`} /> }
+                {category.name}
+              </span>
+            }
+            {location &&
+              <span className="DetailedVenue__info__location">
+                <FaMapMarkedAlt color="green"/> {location}
+              </span>
+            }
+            <span className="DetailedVenue__info__liked">
+              <FaThumbsUp color="blue" />{likes}
             </span>
-          }
-          {location &&
-            <span className="DetailedVenue__info__location">
-              <FaMapMarkedAlt color="green"/> {location}
-            </span>
-          }
-          <span className="DetailedVenue__info__liked">
-            <FaThumbsUp color="blue" />{likes}
-          </span>
-          {url &&  <SocialMedia url={url}  />}
-          {Object.keys(tip).length > 0 && <Tip tip={tip} />}
-
-        </div>
+            {url &&  <SocialMedia url={url}  />}
+            {Object.keys(tip).length > 0 && <Tip tip={tip} />}
+          </div>
+          :
+          <span className="error">{error}</span>
+        }
       </div>
     );
   }
