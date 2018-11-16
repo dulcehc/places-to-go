@@ -7,3 +7,30 @@
     @content;
   }
 }
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+      @content;
+  }
+  @-moz-keyframes #{$name} {
+      @content;
+  }
+  @-ms-keyframes #{$name} {
+      @content;
+  }
+  @keyframes #{$name} {
+      @content;
+  }
+}
+
+@mixin animation ($animation, $duration, $mode) {
+  -webkit-animation: $animation $duration $mode;
+  -moz-animation: $animation $duration $mode;
+  -o-animation: $animation $duration $mode;
+  animation: $animation $duration $mode;
+}
+
+@mixin box-shadow($top, $left, $blur, $color) {
+  box-shadow: $top $left $blur $color;;
+  -webkit-box-shadow:$top $left $blur $color;;
+  -moz-box-shadow: $top $left $blur $color;;
+}

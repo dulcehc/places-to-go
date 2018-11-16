@@ -4,7 +4,9 @@
   width: 90%;
   margin: 5%;
   box-sizing: border-box;
-  box-shadow: rgba(black, 0.19) 0 0 8px 0;
+  @include box-shadow(0, 0, 8px, rgba(black, 0.19));
+  background: linear-gradient(90deg, #d3cfd3 10%, #c7ddd8 90%);
+  border-radius: 2.5rem/2rem;
 
   @include responsive(md) {
     height: 100vh;
@@ -23,8 +25,10 @@
   }
 
   &__img {
-    max-width: 100%;
+    max-width: 90%;
     height: auto;
+
+    margin: 5%;
     @include responsive(md) {
       display: none;
     }
@@ -33,16 +37,20 @@
       flex-direction: column;
       justify-content: center;
       align-content: center;
-      margin-top: 5%;
     }
   }
 
   &__info {
     padding: 1% 5%;
     &__name {
+      @include keyframes('text') {
+        0% { color: blue; }
+        100% { color:black; }
+      }
       display: block;
       font-weight: bold;
       font-size: 1.3rem;
+      @include animation(text, 5s ,infinite);
       @include responsive(lg) {
         font-size: 2rem;
       }
@@ -53,3 +61,4 @@
     }
   }
 }
+
