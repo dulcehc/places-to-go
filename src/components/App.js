@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { CLIENT_ID, CLIENT_SECRET } from './../constants/api-key';
 import Search  from './Search';
 import Result from './Result';
-import DetailedVenue from './DetailedVenue';
+import DetailedVenue from './Detail/DetailedVenue';
 
 class App extends Component {
   constructor(props) {
@@ -29,8 +29,6 @@ class App extends Component {
     });
   }
 
-
-
   getVenues = (query, location='') => {
     const venuesEndpoint = 'https://api.foursquare.com/v2/venues/explore?';
     const params = {
@@ -50,6 +48,7 @@ class App extends Component {
         console.log(response.response.groups[0].items);
         this.setState({
           venues: response.response.groups[0].items,
+          id: '',
           error: ''
         });
       })
@@ -83,10 +82,8 @@ class App extends Component {
 
             : <span>{message}</span>
           }
-
-          {id && <DetailedVenue id={id}/>}
+          {id && <DetailedVenue id={id} />}
         </div>
-
       </div>
     );
   }
