@@ -3,10 +3,9 @@
     display: grid;
     grid-template-columns: 100%;
     @include responsive(md) {
-      grid-template-columns: 35% 58%;
+      grid-template-columns: 35% 64%;
       justify-content: space-around;
-      grid-column-gap: 5%;
-      margin: 2%;
+      grid-column-gap: 1%;
     }
   }
 }
