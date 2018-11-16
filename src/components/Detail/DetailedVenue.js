@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
 import { FaMapMarkedAlt, FaThumbsUp } from 'react-icons/fa';
 import { DEFAULT_PHOTO } from '../../constants/images';
-import { CLIENT_ID, CLIENT_SECRET } from '../../constants/api-key';
+import { PARAMS } from '../../constants/api-key';
 import Tip from './Tip';
 import SocialMedia from './SocialMedia';
 
-const params = {
-  client_id: CLIENT_ID,
-  client_secret: CLIENT_SECRET,
-  v: '20181112',
-}
 
 class DetailedVenue extends Component {
   constructor(props){
@@ -44,7 +39,7 @@ class DetailedVenue extends Component {
   }
   getInformation = id => {
     const endpoint = `https://api.foursquare.com/v2/venues/${id}?`;
-    fetch(endpoint + new URLSearchParams(params), {
+    fetch(endpoint + new URLSearchParams(PARAMS), {
       method: 'GET'
     }).then(response => response.json())
       .then(res => {
