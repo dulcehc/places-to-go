@@ -6,9 +6,35 @@
   box-sizing: border-box;
   box-shadow: rgba(black, 0.19) 0 0 8px 0;
 
+  @include responsive(md) {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @include responsive(lg) {
+    display: grid;
+    flex-direction: row;
+    grid-template-columns: 45% 50%;
+    justify-content: space-around;
+    grid-column-gap: 1%;
+  }
+
   &__img {
     max-width: 100%;
     height: auto;
+    @include responsive(md) {
+      display: none;
+    }
+    @include responsive(lg) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      margin-top: 5%;
+    }
   }
 
   &__info {
@@ -17,11 +43,13 @@
       display: block;
       font-weight: bold;
       font-size: 1.3rem;
+      @include responsive(lg) {
+        font-size: 2rem;
+      }
     }
      > * {
       display: block;
       padding: 2% 2%;
     }
-
   }
 }
