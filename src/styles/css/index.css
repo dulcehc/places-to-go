@@ -16,6 +16,12 @@ body {
     grid-column-gap: 1%;
   }
 }
+.App__container__error {
+  font-size: 1.3rem;
+  color: red;
+  font-weight: bold;
+  margin: 2%;
+}
 
 .Search {
   display: flex;
