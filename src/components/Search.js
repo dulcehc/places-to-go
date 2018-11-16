@@ -36,7 +36,7 @@ class Search extends Component {
           value={this.state.venue}
           placeholder="venue"
           className="Search__venue"
-          autocomplete="off"
+          autoComplete="off"
         />
         <input
           id="venueLocation"
